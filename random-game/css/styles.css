@@ -1,0 +1,94 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: DoorsDefinitiveRegularr, sans-serif;
+  src: url("../assets/fonts/DoorsDefinitiveRegularr.ttf");
+}
+
+body {
+  background-color: #042326;
+  font-family: DoorsDefinitiveRegularr, sans-serif;
+  font-weight: 700;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.game {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 20vmin);
+  grid-template-rows: repeat(4, 20vmin);
+  gap: 3vmin;
+  border-radius: 3vmin;
+}
+
+.game__square {
+  border-radius: 3vmin;
+  background-color: #008F8C;
+}
+
+.game__square-displacement {
+  --x: 1;
+  --y: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20vmin;
+  height: 20vmin;
+  border-radius: 3vmin;
+  position: absolute;
+  top: calc(var(--x) * (20vmin + 3vmin));
+  left: calc(var(--y) * (20vmin + 3vmin));
+  font-size: 10vmin;
+  background-color: #D8FFDB;
+  color: #023535;
+  transition: .2s;
+  animation: square .4s;
+}
+
+@keyframes square {
+  0% {
+    opacity: .5;
+    transform: scale(0);
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to top, #023535, #008F8C);
+  padding: 20px;
+
+}
+
+.footer__github img {
+  width: 70px;
+  height: 68px;
+  transition: all 0.5s linear;
+}
+
+.footer__year {
+  font-size: 30px;
+}
+
+.footer__rss img {
+  width: 150px;
+  height: 68px;
+  transition: all 0.5s linear;
+}
+
+.footer__rss img:hover,
+.footer__github img:hover {
+  transform: scale(1.1);
+}
