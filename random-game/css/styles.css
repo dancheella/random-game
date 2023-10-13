@@ -40,6 +40,8 @@ main {
 .game__square-displacement {
   --x: 1;
   --y: 2;
+  --bg-color: #D8FFDB;
+  --color: #023535;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,8 +52,8 @@ main {
   top: calc(var(--x) * (20vmin + 3vmin));
   left: calc(var(--y) * (20vmin + 3vmin));
   font-size: 10vmin;
-  background-color: #D8FFDB;
-  color: #023535;
+  background-color: hsl(125, 100%, var(--bg-color));
+  color: hsl(180, 93%, var(--color));
   transition: .2s;
   animation: square .4s;
 }
