@@ -6,18 +6,22 @@ export class Random_square {
     squareItem.append(this.randomSquareItem);
   }
 
-  setCoordinates(x, y) {
+  setCoordinates = (x, y) => {
     this.x = x;
     this.y = y;
     this.randomSquareItem.style.setProperty('--x', x);
     this.randomSquareItem.style.setProperty('--y', y);
   }
 
-  setValue(randomSquare) {
+  setValue = (randomSquare) => {
     this.value = randomSquare;
     this.randomSquareItem.textContent = this.value.toString();
     const bgColor = 100 - Math.log2(randomSquare) * 8;
     this.randomSquareItem.style.setProperty('--bg-color', `${bgColor}%`);
     this.randomSquareItem.style.setProperty('--color', `${bgColor < 50 ? 90 : 10}%`);
+  }
+
+  removeSquare = () => {
+    this.randomSquareItem.remove();
   }
 }

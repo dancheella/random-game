@@ -7,12 +7,39 @@ export class Square {
     this.y = y;
   }
 
-  linkRandomSquare(square) {
-    square.setCoordinates(this.x, this.y)
+  linkRandomSquare = (square) => {
+    square.setCoordinates(this.x, this.y);
     this.linkedRandomSquare = square;
   }
 
-  isEmpty() {
+  unlinkSquare = () => {
+    this.linkedRandomSquare = null;
+  }
+
+  isEmpty = () => {
     return !this.linkedRandomSquare;
+  }
+
+  linkSquareForMerge = (square) => {
+    square.setCoordinates(this.x, this.y);
+    this.squareForMerge = square;
+  }
+
+  unlinkSquareForMerge = () => {
+    this.linkedRandomSquare = null;
+  }
+
+  hasSquareForMerge = () => {
+    return !!this.squareForMerge;
+  }
+
+  canAccept = (newSquare) => {
+    return this.isEmpty() || (!this.hasSquareForMerge() && this.linkedRandomSquare.value === newSquare.value);
+  }
+
+  mergeSquare = () => {
+    this.linkedRandomSquare.setValue(this.linkedRandomSquare.value + this.linkedRandomSquare.value);
+    this.squareForMerge.removeSquare();
+    this.unlinkSquareForMerge()
   }
 }

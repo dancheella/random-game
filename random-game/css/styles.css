@@ -49,8 +49,8 @@ main {
   height: 20vmin;
   border-radius: 3vmin;
   position: absolute;
-  top: calc(var(--x) * (20vmin + 3vmin));
-  left: calc(var(--y) * (20vmin + 3vmin));
+  top: calc(var(--y) * (20vmin + 3vmin));
+  left: calc(var(--x) * (20vmin + 3vmin));
   font-size: 10vmin;
   background-color: hsl(125, 100%, var(--bg-color));
   color: hsl(180, 93%, var(--color));
