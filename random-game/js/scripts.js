@@ -2,6 +2,8 @@ import {Squares} from "./squares.js";
 import {Random_square} from "./random_square.js";
 
 const gameField = document.getElementById('game');
+const gameOverSound = new Audio('assets/audio/0961f580f9e00da.mp3');
+
 
 const square = new Squares(gameField);
 square.getRandomSquare().linkRandomSquare(new Random_square(gameField));
@@ -12,6 +14,7 @@ const closeButton = document.getElementById('close');
 
 const openPopup = () => {
   popup.style.display = 'flex';
+  gameOverSound.play();
 };
 
 const closePopup = () => {
@@ -69,6 +72,12 @@ const processInputData = async (e) => {
   oneTimeInputSetup();
 }
 
+window.addEventListener('keydown', (e) => {
+  if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+    e.preventDefault();
+  }
+});
+
 oneTimeInputSetup();
 
 const buttonUp = async() => {
@@ -96,7 +105,7 @@ const buttonRight = async () => {
 
   square.squares.forEach(square => {
     square.hasSquareForMerge() && square.mergeSquare();
-  })
+  });
 }
 
 const groupSlideAnimation = (group, promises) => {

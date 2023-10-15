@@ -20,14 +20,25 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 6vmin;
   min-height: 100vh;
+}
+
+.score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3vmin;
+  color: #D8FFDB;
+  font-size: 7vmin;
 }
 
 .game {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, 20vmin);
-  grid-template-rows: repeat(4, 20vmin);
+  grid-template-columns: repeat(4, 15vmin);
+  grid-template-rows: repeat(4, 15vmin);
   gap: 3vmin;
   border-radius: 3vmin;
 }
@@ -45,13 +56,13 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20vmin;
-  height: 20vmin;
+  width: 15vmin;
+  height: 15vmin;
   border-radius: 3vmin;
   position: absolute;
-  top: calc(var(--y) * (20vmin + 3vmin));
-  left: calc(var(--x) * (20vmin + 3vmin));
-  font-size: 10vmin;
+  top: calc(var(--y) * (15vmin + 3vmin));
+  left: calc(var(--x) * (15vmin + 3vmin));
+  font-size: 7vmin;
   background-color: hsl(70, 50%, var(--bg-color));
   color: hsl(180, 93%, var(--color));
   transition: .2s;
@@ -120,25 +131,30 @@ main {
   border-radius: 3vmin;
   text-align: center;
   color: #D8FFDB;
-  width: 70vmin;
-  height: 70vmin;
+  width: 50vmin;
+  height: 50vmin;
   font-size: 5vmin;
+}
+
+.popup__text {
+  font-size: 3vmin;
 }
 
 .popup__close {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 10vmin;
+  top: 5px;
+  right: 10px;
+  font-size: 7vmin;
   cursor: pointer;
 }
 
 .popup__button {
   width: 30vmin;
-  padding: 20px;
+  padding: 10px;
   border-radius: 2vmin;
   border: none;
   background: #D8FFDB;
   font-family: DoorsDefinitiveRegularr, sans-serif;
   font-size: 3vmin;
+  cursor: pointer;
 }

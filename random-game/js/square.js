@@ -1,3 +1,7 @@
+let score = 0;
+const scoreElement = document.querySelector('.score-number');
+const popupText = document.querySelector('.popup__text');
+
 export class Square {
   constructor(squareItem, x, y) {
     const square = document.createElement('div');
@@ -5,6 +9,7 @@ export class Square {
     squareItem.append(square);
     this.x = x;
     this.y = y;
+    this.mergeSound = new Audio('assets/audio/vyibor-nujnogo-deystviya.mp3');
   }
 
   linkRandomSquare = (square) => {
@@ -40,6 +45,12 @@ export class Square {
   mergeSquare = () => {
     this.linkedRandomSquare.setValue(this.linkedRandomSquare.value + this.squareForMerge.value);
     this.squareForMerge.removeSquare();
-    this.unlinkSquareForMerge()
+    this.unlinkSquareForMerge();
+
+    this.mergeSound.play();
+
+    score += this.linkedRandomSquare.value;
+    scoreElement.textContent = score;
+    popupText.textContent = `Вы проиграли! Ваш счет: ${score}. Готовы начать заново?`;
   }
 }
