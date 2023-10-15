@@ -3,6 +3,7 @@ export class Random_square {
     this.randomSquareItem = document.createElement('div');
     this.randomSquareItem.classList.add('game__square-displacement');
     this.setValue(Math.random() > 0.5 ? 2 : 4);
+
     squareItem.append(this.randomSquareItem);
   }
 
@@ -23,5 +24,17 @@ export class Random_square {
 
   removeSquare = () => {
     this.randomSquareItem.remove();
+  }
+
+  waitEndTransform = () => {
+    return new Promise(resolve => {
+      this.randomSquareItem.addEventListener('transitionend', resolve, {once: true})
+    })
+  }
+
+  waitEndAnimation = () => {
+    return new Promise(resolve => {
+      this.randomSquareItem.addEventListener('animationend', resolve, {once: true})
+    })
   }
 }

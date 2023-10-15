@@ -7,61 +7,99 @@ const square = new Squares(gameField);
 square.getRandomSquare().linkRandomSquare(new Random_square(gameField));
 square.getRandomSquare().linkRandomSquare(new Random_square(gameField));
 
+const popup = document.getElementById('popup');
+const closeButton = document.getElementById('close');
+
+const openPopup = () => {
+  popup.style.display = 'flex';
+};
+
+const closePopup = () => {
+  popup.style.display = 'none';
+};
+
+closeButton.addEventListener('click', closePopup);
 
 const oneTimeInputSetup = () => {
   window.addEventListener('keydown', processInputData, {once: true});
 }
 
-const processInputData = (e) => {
+const processInputData = async (e) => {
   switch (e.key) {
     case "ArrowUp":
-      buttonUp();
+      if (!upButtonAvailable()){
+        oneTimeInputSetup();
+        return;
+      }
+      await buttonUp();
       break;
     case "ArrowDown":
-      buttonDown();
+      if (!downButtonAvailable()){
+        oneTimeInputSetup();
+        return;
+      }
+      await buttonDown();
       break;
     case "ArrowLeft":
-      buttonLeft();
+      if (!leftButtonAvailable()){
+        oneTimeInputSetup();
+        return;
+      }
+      await buttonLeft();
       break;
     case "ArrowRight":
-      buttonRight();
+      if (!rightButtonAvailable()){
+        oneTimeInputSetup();
+        return;
+      }
+      await buttonRight();
       break;
     default:
       oneTimeInputSetup();
       return;
   }
-  oneTimeInputSetup();
-}
+  const newSquare = new Random_square(gameField);
+  square.getRandomSquare().linkRandomSquare(newSquare);
+
+  if (!upButtonAvailable() && !downButtonAvailable() && !leftButtonAvailable() && !rightButtonAvailable()) {
+    await newSquare.waitEndAnimation();
+    openPopup();
+  }
 
   oneTimeInputSetup();
-
-const buttonUp = () => {
-  slideSquares(square.cellColumns);
 }
 
-const buttonDown = () => {
-  slideSquares(square.cellColumnsReversed);
+oneTimeInputSetup();
+
+const buttonUp = async() => {
+  await slideSquares(square.cellColumns);
+}
+
+const buttonDown = async() => {
+  await slideSquares(square.cellColumnsReversed);
+}
+
+const buttonLeft = async () => {
+  await slideSquares(square.cellRows);
 }
 
 
-const buttonLeft = () => {
-  slideSquares(square.cellRows);
+const buttonRight = async () => {
+  await slideSquares(square.cellRowsReversed);
 }
 
+ const slideSquares = async (groupedSquares) => {
+  const promises = [];
+  groupedSquares.forEach(group => groupSlideAnimation(group, promises));
 
-const buttonRight = () => {
-  slideSquares(square.cellRowsReversed);
-}
-
-const slideSquares = (groupedSquares) => {
-  groupedSquares.forEach(group => groupSlideAnimation(group));
+  await Promise.all(promises);
 
   square.squares.forEach(square => {
     square.hasSquareForMerge() && square.mergeSquare();
   })
 }
 
-const groupSlideAnimation = (group) => {
+const groupSlideAnimation = (group, promises) => {
   for (let i = 1; i < group.length; i++) {
     if (group[i].isEmpty()) {
       continue;
@@ -80,6 +118,8 @@ const groupSlideAnimation = (group) => {
       continue;
     }
 
+    promises.push(squareWithSquare.linkedRandomSquare.waitEndTransform());
+
     if (activeSquare.isEmpty()) {
       activeSquare.linkRandomSquare(squareWithSquare.linkedRandomSquare);
     } else {
@@ -88,4 +128,39 @@ const groupSlideAnimation = (group) => {
 
     squareWithSquare.unlinkSquare();
   }
+}
+
+const upButtonAvailable = () => {
+  return buttonAvailable(square.cellColumns);
+}
+
+const downButtonAvailable = () => {
+  return buttonAvailable(square.cellColumnsReversed);
+}
+
+const leftButtonAvailable = () => {
+  return buttonAvailable(square.cellRows);
+}
+
+const rightButtonAvailable = () => {
+  return buttonAvailable(square.cellRowsReversed);
+}
+
+const buttonAvailable = (groupedSquares) => {
+  return groupedSquares.some(group => buttonAvailableGroup(group));
+}
+
+const buttonAvailableGroup = (group) => {
+  return group.some((square, index) => {
+    if (index === 0) {
+      return false;
+    }
+
+    if (square.isEmpty()) {
+      return false;
+    }
+
+    const activeSquare = group[index - 1];
+    return activeSquare.canAccept(square.linkedRandomSquare);
+  })
 }

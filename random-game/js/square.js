@@ -26,7 +26,7 @@ export class Square {
   }
 
   unlinkSquareForMerge = () => {
-    this.linkedRandomSquare = null;
+    this.squareForMerge = null;
   }
 
   hasSquareForMerge = () => {
@@ -38,7 +38,7 @@ export class Square {
   }
 
   mergeSquare = () => {
-    this.linkedRandomSquare.setValue(this.linkedRandomSquare.value + this.linkedRandomSquare.value);
+    this.linkedRandomSquare.setValue(this.linkedRandomSquare.value + this.squareForMerge.value);
     this.squareForMerge.removeSquare();
     this.unlinkSquareForMerge()
   }
