@@ -1,4 +1,5 @@
 let score = 0;
+let popupShown = false;
 const scoreElement = document.querySelector('.score-number');
 const popupText = document.querySelector('.popup__text');
 
@@ -51,6 +52,30 @@ export class Square {
 
     score += this.linkedRandomSquare.value;
     scoreElement.textContent = score;
-    popupText.textContent = `Вы проиграли! Ваш счет: ${score}. Готовы начать заново?`;
+    if (this.linkedRandomSquare.value === 2048 && !popupShown) {
+      openWinPopup();
+      popupShown = true;
+    } else {
+      popupText.textContent = `Вы проиграли! Ваш счет: ${score}. Готовы начать заново?`;
+    }
   }
+}
+
+const openWinPopup = () => {
+  const winPopup = document.getElementById('winPopup');
+  // const continueButton = document.getElementById('continueButton');
+  const endGameButton = document.getElementById('endGameButton');
+  const closeButtonWin = document.getElementById('close-win');
+  const winAudio = new Audio('assets/audio/1984a9f3474ab6d.mp3')
+
+  winPopup.style.display = 'flex';
+
+  winAudio.play()
+
+  function hideWinPopup() {
+    winPopup.style.display = 'none';
+  }
+
+  endGameButton.addEventListener('click', hideWinPopup);
+  closeButtonWin.addEventListener('click', hideWinPopup);
 }

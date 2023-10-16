@@ -4,7 +4,6 @@ import {Random_square} from "./random_square.js";
 const gameField = document.getElementById('game');
 const gameOverSound = new Audio('assets/audio/0961f580f9e00da.mp3');
 
-
 const square = new Squares(gameField);
 square.getRandomSquare().linkRandomSquare(new Random_square(gameField));
 square.getRandomSquare().linkRandomSquare(new Random_square(gameField));
