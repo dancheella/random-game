@@ -1,5 +1,6 @@
 import {Squares} from "./squares.js";
 import {Random_square} from "./random_square.js";
+import {score} from "./square.js";
 
 const gameField = document.getElementById('game');
 const gameOverSound = new Audio('assets/audio/0961f580f9e00da.mp3');
@@ -9,18 +10,12 @@ square.getRandomSquare().linkRandomSquare(new Random_square(gameField));
 square.getRandomSquare().linkRandomSquare(new Random_square(gameField));
 
 const popup = document.getElementById('popup');
-const closeButton = document.getElementById('close');
+// const closeButton = document.getElementById('close');
 
 const openPopup = () => {
   popup.style.display = 'flex';
   gameOverSound.play();
 };
-
-const closePopup = () => {
-  popup.style.display = 'none';
-};
-
-closeButton.addEventListener('click', closePopup);
 
 const oneTimeInputSetup = () => {
   window.addEventListener('keydown', processInputData, {once: true});
@@ -172,3 +167,42 @@ const buttonAvailableGroup = (group) => {
     return activeSquare.canAccept(square.linkedRandomSquare);
   })
 }
+
+const winPopup = document.getElementById('winPopup');
+const continueButton = document.getElementById('continueButton');
+const winAudio = new Audio('assets/audio/1984a9f3474ab6d.mp3');
+
+export const openWinPopup = () => {
+  winPopup.style.display = 'flex';
+
+  winAudio.play()
+
+  const hideWinPopup = () => {
+    winPopup.style.display = 'none';
+  }
+
+  continueButton.addEventListener('click', hideWinPopup);
+}
+
+const localData = () => {
+  const savedGames = JSON.parse(localStorage.getItem('savedGames')) || [];
+
+  savedGames.push(score);
+
+  if (savedGames.length > 10) {
+    savedGames.shift();
+  }
+
+  localStorage.setItem('savedGames', JSON.stringify(savedGames));
+}
+
+const resetButton = document.getElementById('resetButton');
+const endGameButton = document.getElementById('endGameButton');
+
+const resetGame = () => {
+  localData();
+  window.location.reload();
+}
+
+resetButton.addEventListener('click', resetGame);
+endGameButton.addEventListener('click', resetGame);

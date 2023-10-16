@@ -1,7 +1,10 @@
 let score = 0;
+export { score };
 let popupShown = false;
 const scoreElement = document.querySelector('.score-number');
 const popupText = document.querySelector('.popup__text');
+
+import {openWinPopup} from "./scripts.js";
 
 export class Square {
   constructor(squareItem, x, y) {
@@ -52,30 +55,11 @@ export class Square {
 
     score += this.linkedRandomSquare.value;
     scoreElement.textContent = score;
-    if (this.linkedRandomSquare.value === 2048 && !popupShown) {
+    if (this.linkedRandomSquare.value === 32 && !popupShown) {
       openWinPopup();
       popupShown = true;
     } else {
-      popupText.textContent = `Вы проиграли! Ваш счет: ${score}. Готовы начать заново?`;
+      popupText.textContent = `Вы проиграли! Ваш счет: ${score}.`;
     }
   }
-}
-
-const openWinPopup = () => {
-  const winPopup = document.getElementById('winPopup');
-  // const continueButton = document.getElementById('continueButton');
-  const endGameButton = document.getElementById('endGameButton');
-  const closeButtonWin = document.getElementById('close-win');
-  const winAudio = new Audio('assets/audio/1984a9f3474ab6d.mp3')
-
-  winPopup.style.display = 'flex';
-
-  winAudio.play()
-
-  function hideWinPopup() {
-    winPopup.style.display = 'none';
-  }
-
-  endGameButton.addEventListener('click', hideWinPopup);
-  closeButtonWin.addEventListener('click', hideWinPopup);
 }

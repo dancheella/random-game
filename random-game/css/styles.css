@@ -125,7 +125,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
+  gap: 4vmin;
   background-color: #008F8C;
   padding: 20px;
   border-radius: 3vmin;
@@ -138,14 +138,6 @@ main {
 
 .popup__text {
   font-size: 3vmin;
-}
-
-.popup__close {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  font-size: 7vmin;
-  cursor: pointer;
 }
 
 .popup__button {
