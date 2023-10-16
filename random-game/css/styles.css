@@ -140,7 +140,8 @@ main {
   font-size: 3vmin;
 }
 
-.popup__button {
+.popup__button,
+.score__button {
   width: 30vmin;
   padding: 10px;
   border-radius: 2vmin;
@@ -149,4 +150,6 @@ main {
   font-family: DoorsDefinitiveRegularr, sans-serif;
   font-size: 3vmin;
   cursor: pointer;
+  color: #042326;
+  outline: none;
 }

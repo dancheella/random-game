@@ -205,3 +205,9 @@ const resetGame = () => {
 
 resetButton.addEventListener('click', resetGame);
 endGameButton.addEventListener('click', resetGame);
+
+const resetScore = document.getElementById("resetScore");
+
+resetScore.addEventListener("click", function() {
+  window.location.reload();
+});
