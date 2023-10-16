@@ -55,7 +55,7 @@ export class Square {
 
     score += this.linkedRandomSquare.value;
     scoreElement.textContent = score;
-    if (this.linkedRandomSquare.value === 32 && !popupShown) {
+    if (this.linkedRandomSquare.value === 2048 && !popupShown) {
       openWinPopup();
       popupShown = true;
     } else {

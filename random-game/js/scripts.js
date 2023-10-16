@@ -10,7 +10,6 @@ square.getRandomSquare().linkRandomSquare(new Random_square(gameField));
 square.getRandomSquare().linkRandomSquare(new Random_square(gameField));
 
 const popup = document.getElementById('popup');
-// const closeButton = document.getElementById('close');
 
 const openPopup = () => {
   popup.style.display = 'flex';

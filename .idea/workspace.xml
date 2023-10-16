@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa577f05-b572-4574-bc3c-b7d57e1e6ce4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/random-game/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/random-game/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/random-game/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/random-game/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/random-game/js/random_square.js" beforeDir="false" afterPath="$PROJECT_DIR$/random-game/js/random_square.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/random-game/js/message.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/random-game/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/random-game/js/scripts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/random-game/js/square.js" beforeDir="false" afterPath="$PROJECT_DIR$/random-game/js/square.js" afterDir="false" />
     </list>
@@ -41,32 +38,34 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;random-game&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/denisdankin/Rolling/random-game/random-game/assets/images&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "random-game",
+    "last_opened_file_path": "/Users/denisdankin/Rolling/random-game/random-game/assets/audio",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/random-game/assets/audio" />
       <recent name="$PROJECT_DIR$/random-game/assets/images" />
       <recent name="$PROJECT_DIR$/random-game/assets/fonts" />
       <recent name="$PROJECT_DIR$/random-game/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/random-game/assets/audio" />
       <recent name="$PROJECT_DIR$/random-game/assets" />
     </key>
   </component>
@@ -90,6 +89,7 @@
       <workItem from="1697390639254" duration="231000" />
       <workItem from="1697390884546" duration="97000" />
       <workItem from="1697391116525" duration="67000" />
+      <workItem from="1697391230251" duration="37357000" />
     </task>
     <servers />
   </component>
