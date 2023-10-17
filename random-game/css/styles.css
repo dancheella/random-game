@@ -30,6 +30,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 3vmin;
   color: #D8FFDB;
   font-size: 7vmin;
