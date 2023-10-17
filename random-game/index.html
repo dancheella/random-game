@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2048</title>
+  <link rel="icon" href="assets/images/favicon.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/adaptive.css">
+</head>
+<body>
+
+<main>
+  <h1 class="game-title">2048</h1>
+  <section class="score">
+    <div class="score__info">
+      <span class="score-text">Score </span>
+      <span class="score-number">0</span>
+    </div>
+    <button class="score__button" id="resetScore">Reset</button>
+  </section>
+  <span class="score__rule">Join the numbers and get to the 2048 tile!</span>
+  <section class="game" id="game"></section>
+</main>
+
+<footer class="footer">
+  <a href="https://github.com/dancheella" target="_blank" class="footer__github"><img src="assets/images/svg/github.svg"
+                                                                                      alt="GitHub"></a>
+  <span class="footer__year">2023</span>
+  <a href="https://rs.school/" target="_blank" class="footer__rss"><img src="assets/images/svg/rss.svg" alt="RSS"></a>
+</footer>
+
+<div class="popup" id="popup">
+  <div class="popup__content">
+    <div class="popup__text"></div>
+    <button class="popup__button" id="resetButton">Начать заново</button>
+  </div>
+</div>
+
+<div class="popup" id="winPopup">
+  <div class="popup__content">
+    <div class="popup__text">Вы победили! <br> Вы собрали кубик 2048! <br> Да - продолжить, <br> Нет - заново!</div>
+    <button class="popup__button" id="continueButton">Да</button>
+    <button class="popup__button" id="endGameButton">Нет</button>
+  </div>
+</div>
+
+
+<script type="module" src="js/scripts.js"></script>
+</body>
+</html>

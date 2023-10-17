@@ -1,0 +1,169 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: DoorsDefinitiveRegularr, sans-serif;
+  src: url("../assets/fonts/DoorsDefinitiveRegularr.ttf");
+}
+
+body {
+  background-color: #042326;
+  font-family: DoorsDefinitiveRegularr, sans-serif;
+  font-weight: 700;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2vmin;
+  min-height: 100vh;
+}
+
+.score,
+.score__rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3vmin;
+  color: #D8FFDB;
+  font-size: 7vmin;
+}
+
+.game-title {
+  background-image: linear-gradient(to bottom, #D8FFDB, #008F8C);
+  font-size: 7vmin;
+  border-radius: 1vmin;
+  padding: 0 1vmin;
+  color: #042326;
+}
+
+.score__rule {
+  font-size: 3vmin;
+}
+
+.game {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 15vmin);
+  grid-template-rows: repeat(4, 15vmin);
+  gap: 3vmin;
+  border-radius: 3vmin;
+}
+
+.game__square {
+  border-radius: 3vmin;
+  background-color: #008F8C;
+}
+
+.game__square-displacement {
+  --x: 1;
+  --y: 2;
+  --bg-color: #D8FFDB;
+  --color: #023535;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15vmin;
+  height: 15vmin;
+  border-radius: 3vmin;
+  position: absolute;
+  top: calc(var(--y) * (15vmin + 3vmin));
+  left: calc(var(--x) * (15vmin + 3vmin));
+  font-size: 7vmin;
+  background-color: hsl(70, 50%, var(--bg-color));
+  color: hsl(180, 93%, var(--color));
+  transition: .2s;
+  animation: square .4s;
+}
+
+@keyframes square {
+  0% {
+    opacity: .5;
+    transform: scale(0);
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to top, #023535, #008F8C);
+  padding: 20px;
+
+}
+
+.footer__github img {
+  width: 70px;
+  height: 68px;
+  transition: all 0.5s linear;
+}
+
+.footer__year {
+  font-size: 30px;
+}
+
+.footer__rss img {
+  width: 150px;
+  height: 68px;
+  transition: all 0.5s linear;
+}
+
+.footer__rss img:hover,
+.footer__github img:hover {
+  transform: scale(1.1);
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.popup__content {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4vmin;
+  background-color: #008F8C;
+  padding: 20px;
+  border-radius: 3vmin;
+  text-align: center;
+  color: #D8FFDB;
+  width: 50vmin;
+  height: 50vmin;
+  font-size: 5vmin;
+}
+
+.popup__text {
+  font-size: 3vmin;
+}
+
+.popup__button,
+.score__button {
+  width: 30vmin;
+  padding: 10px;
+  border-radius: 2vmin;
+  border: none;
+  background: #D8FFDB;
+  font-family: DoorsDefinitiveRegularr, sans-serif;
+  font-size: 3vmin;
+  cursor: pointer;
+  color: #042326;
+  outline: none;
+}
