@@ -21,17 +21,30 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 6vmin;
+  gap: 2vmin;
   min-height: 100vh;
 }
 
-.score {
+.score,
+.score__rule {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 3vmin;
   color: #D8FFDB;
   font-size: 7vmin;
+}
+
+.game-title {
+  background-image: linear-gradient(to bottom, #D8FFDB, #008F8C);
+  font-size: 7vmin;
+  border-radius: 1vmin;
+  padding: 0 1vmin;
+  color: #042326;
+}
+
+.score__rule {
+  font-size: 3vmin;
 }
 
 .game {
